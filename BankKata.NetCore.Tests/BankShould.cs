@@ -8,10 +8,10 @@ using Xunit;
 
 namespace BankKata.NetCore.Tests
 {
-    public class AccountShould
+    public class BankShould
     {
         [Fact]
-        public void print_a_statement()
+        public void print_account_statement()
         {
             IClock clock = Substitute.For<IClock>();
             ITransactionRepository transactionRepository = Substitute.For<ITransactionRepository>();
