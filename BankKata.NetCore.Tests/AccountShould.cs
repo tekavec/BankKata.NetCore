@@ -1,3 +1,4 @@
+using System;
 using BankKata.NetCore.Infrastructure;
 using BankKata.NetCore.Model;
 using BankKata.NetCore.Services;
@@ -16,6 +17,9 @@ namespace BankKata.NetCore.Tests
             ITransactionRepository transactionRepository = Substitute.For<ITransactionRepository>();
             IConsole console = Substitute.For<IConsole>();
             IStatementPrinter statementPrinter = new StatementPrinter(console);
+            clock.Today().Returns(new DateTime(2012, 1, 10));
+            clock.Today().Returns(new DateTime(2012, 1, 14));
+            clock.Today().Returns(new DateTime(2012, 1, 13));
             var account = new Account(clock, transactionRepository, statementPrinter);
 
             account.Deposit(1000);
